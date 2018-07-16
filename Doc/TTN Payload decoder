@@ -1,0 +1,32 @@
+function Decoder(bytes, port) {
+  
+  // First determine devicetype in order to apply correct payload decoder logic
+  var devicetype = (bytes[0]<<8) | bytes[1];
+  
+  switch (devicetype) {
+    
+    //Air Quality sensor TTN Uno + SDS 10 + DHT22
+    case 1:
+      var pm10 = ((bytes[2]<<8) | bytes[3])/100;
+      var pm25 = ((bytes[4]<<8) | bytes[5])/100;
+      var humidity = ((bytes[6]<<8) | bytes[7])/100;
+      var temperature = ((bytes[8]<<8) | bytes[9])/100;
+      return {
+        device_type : "TTN-Uno-Air-Quality-v1.0",
+        pm10 : pm10,
+        pm25 : pm25,
+        temperature : temperature,
+        humidity : humidity
+      }
+      break;
+    case 2:
+      // Todo
+      break;
+    default:
+      //Todo ? error
+  }
+  
+  // if (port === 1) decoded.led = bytes[0];
+
+  return decoded;
+}
