@@ -23,8 +23,8 @@
 //*******************************
 
 // copy and paste these values from your TTN console application
-const char *appEui = "70B3D57ED000FCB5";
-const char *appKey = "66AEE45279848DCC4EA7D9755552265E";
+const char *appEui = "xxxxxxxxxxxx";
+const char *appKey = "xxxxxxxxxxxxxxxxxxxxxxxxx";
 const int DEVICETYPE = 1; //All device will have a familly identifier. This allows us to distinguish in AWS and apply the correct Payload converter 
 
 // PIN configuration
